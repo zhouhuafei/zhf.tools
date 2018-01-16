@@ -1,4 +1,4 @@
-const tools = require('../dist/index');
+const tools = require('../dist/index.min');
 
 test(`tools.fillZero(9, 2) // '09'`, () => {
     expect(tools.fillZero(9, 2)).toBe('09');
