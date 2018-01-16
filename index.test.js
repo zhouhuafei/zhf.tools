@@ -15,10 +15,12 @@ test(`tools.keepDecimal(1000, 3, false); // '1000.000'`, () => {
     expect(tools.keepDecimal(1000, 3, false)).toBe('1000.000');
 });
 test(
-    `tools.extend({
+    `
+    tools.extend({
         defaults: { a: 1, c: [1, 2] },
         inherits: { b: 2, c: [3] },
-    }); // { a: 1, b: 2, c: [3, 2] }`,
+    }); // { a: 1, b: 2, c: [3, 2] }
+    `,
     () => {
         expect(tools.extend({
             defaults: { a: 1, c: [1, 2] },
