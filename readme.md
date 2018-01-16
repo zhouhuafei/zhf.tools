@@ -12,5 +12,10 @@ tools.keepDecimal(10, 3); // '10.000'
 tools.keepDecimal(1000, 3); // '1,000.000'
 tools.keepDecimal(1000, 3, false); // '1000.000'
 
+tools.extend({
+    defaults: { a: 1, c: [1, 2] },
+    inherits: { b: 2, c: [3] },
+}); // { a: 1, b: 2, c: [3, 2] }
+
 其他方法请参阅源码0.0
 ```
