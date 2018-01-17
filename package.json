@@ -1,6 +1,6 @@
 {
     "name": "zhf.tools",
-    "version": "1.0.16",
+    "version": "1.0.17",
     "description": "no description",
     "main": "dist/index.min.js",
     "scripts": {
