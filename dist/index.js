@@ -12,42 +12,45 @@ Tools.prototype.typeOf = function (whatever) {
 };
 
 /**
- * @description 对象扩展
+ * @description 对象的扩展
+ * @param {*} defaults - 默认对象
+ * @param {*} inherits - 继承对像
+ * @param {Boolean} isDeep - 是否进行深拷贝(默认进行深拷贝)
  * */
-Tools.prototype.extend = function (json) {
+Tools.prototype.extend = function () {
+    var defaults = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var inherits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var isDeep = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
     var self = this;
-    var opts = json || {};
-    opts.defaults = opts.defaults || {}; // 默认对象
-    opts.inherits = opts.inherits || {}; // 继承对像
-    opts.isDeep = opts.isDeep === false ? opts.isDeep : true; // 是否进行深拷贝(默认进行深拷贝)
-    var defaultsType = Object.prototype.toString.call(opts.defaults).slice(8, -1).toLowerCase();
-    var inheritsType = Object.prototype.toString.call(opts.inherits).slice(8, -1).toLowerCase();
-    if (defaultsType === inheritsType && opts.isDeep) {
+    var defaultsType = Object.prototype.toString.call(defaults).slice(8, -1).toLowerCase();
+    var inheritsType = Object.prototype.toString.call(inherits).slice(8, -1).toLowerCase();
+    if (defaultsType === inheritsType && isDeep) {
         if (defaultsType === 'object' || defaultsType === 'array') {
             // 当为对象或者为数组
-            Object.keys(opts.inherits).forEach(function (attr) {
-                var attrDefaultsType = Object.prototype.toString.call(opts.defaults[attr]).slice(8, -1).toLowerCase();
-                var attrInheritsType = Object.prototype.toString.call(opts.inherits[attr]).slice(8, -1).toLowerCase();
-                if (attrDefaultsType === attrInheritsType && opts.isDeep) {
+            Object.keys(inherits).forEach(function (attr) {
+                var attrDefaultsType = Object.prototype.toString.call(defaults[attr]).slice(8, -1).toLowerCase();
+                var attrInheritsType = Object.prototype.toString.call(inherits[attr]).slice(8, -1).toLowerCase();
+                if (attrDefaultsType === attrInheritsType && isDeep) {
                     // 类型相同
                     if (attrDefaultsType === 'object' || attrDefaultsType === 'array') {
                         // 当为对象或者为数组
-                        self.extend({ defaults: opts.defaults[attr], inherits: opts.inherits[attr] });
+                        self.extend(defaults[attr], inherits[attr]);
                     } else {
-                        opts.defaults[attr] = opts.inherits[attr];
+                        defaults[attr] = inherits[attr];
                     }
                 } else {
                     // 类型不同,直接后面的覆盖前面的
-                    opts.defaults[attr] = opts.inherits[attr];
+                    defaults[attr] = inherits[attr];
                 }
             });
         } else {
-            opts.defaults = opts.inherits;
+            defaults = inherits;
         }
     } else {
-        opts.defaults = opts.inherits;
+        defaults = inherits;
     }
-    return opts.defaults;
+    return defaults;
 };
 
 /**
@@ -89,21 +92,7 @@ Tools.prototype.constructorInherit = function (Super) {
     // 子类型
     function Sub(json) {
         // 子类型继承超类型的属性
-        Super.call(this, self.extend({
-            /*
-             * 注意:
-             * defaults要防止对象的引用(如果不防止的话,会出现BUG)
-             * 例如 wrap的默认值是'.g-wrap'
-             * 第一次   var obj1=new Sub({wrap:'body'});   wrap的值是'body'
-             * 第二次   var obj2=new Sub();    这里按理说wrap的值应该是默认值'.g-wrap'
-             * 但是由于对象引用的原因,这里的值会变成'body'
-             * 因此这里要处理掉对象的引用,所以我使用了JSON的方法进行了阻止
-             * 但是JSON.stringify方法居然会过滤掉对象内部的所有函数,真是日了狗了
-             * 所以我就封装了一个移除对象引用的函数
-             * */
-            defaults: self.objRemoveQuote(parameter),
-            inherits: json
-        }));
+        Super.call(this, self.extend(self.objRemoveQuote(parameter), json));
     }
 
     // 子类型继承超类型的方法
@@ -149,16 +138,13 @@ Tools.prototype.secondsToTime = function () {
 Tools.prototype.timeCountDown = function (json) {
     var self = this;
     var opts = self.extend({
-        defaults: {
-            seconds: 0,
-            isToTime: true, // 是否转换成时间
-            callback: {
-                run: function run() {},
-                over: function over() {}
-            }
-        },
-        inherits: json
-    });
+        seconds: 0,
+        isToTime: true, // 是否转换成时间
+        callback: {
+            run: function run() {},
+            over: function over() {}
+        }
+    }, json);
     var seconds = opts.seconds; // 秒数
     var run = opts.callback.run; // 运行的回调
     var over = opts.callback.over; // 结束的回调

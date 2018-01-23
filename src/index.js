@@ -17,6 +17,7 @@ Tools.prototype.typeOf = function (whatever) {
  * @param {Boolean} isDeep - 是否进行深拷贝(默认进行深拷贝)
  * */
 Tools.prototype.extend = function (defaults = {}, inherits = {}, isDeep = true) {
+    const self = this;
     const defaultsType = Object.prototype.toString.call(defaults).slice(8, -1).toLowerCase();
     const inheritsType = Object.prototype.toString.call(inherits).slice(8, -1).toLowerCase();
     if (defaultsType === inheritsType && isDeep) {
@@ -26,7 +27,7 @@ Tools.prototype.extend = function (defaults = {}, inherits = {}, isDeep = true) 
                 const attrInheritsType = Object.prototype.toString.call(inherits[attr]).slice(8, -1).toLowerCase();
                 if (attrDefaultsType === attrInheritsType && isDeep) { // 类型相同
                     if (attrDefaultsType === 'object' || attrDefaultsType === 'array') { // 当为对象或者为数组
-                        this.extend(defaults[attr], inherits[attr]);
+                        self.extend(defaults[attr], inherits[attr]);
                     } else {
                         defaults[attr] = inherits[attr];
                     }
