@@ -261,7 +261,7 @@ Tools.prototype.isEmpty = function (value) {
 
 // 是不是数字0
 Tools.prototype.isZero = function (value) {
-    return Number(value) === 0;
+    return value.toString().trim() === '0';
 };
 
 // 是不是正整数
@@ -278,7 +278,7 @@ Tools.prototype.isKeepDecimal = function (value, place = 2) {
 
 // 是不是手机号
 Tools.prototype.isPhoneNum = function (value) {
-    const reg = /^1[3458][0-9]\d{4,8}$/;
+    const reg = /^1[34578]\d{9}$/;
     return reg.test(value);
 };
 
