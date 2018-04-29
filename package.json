@@ -1,13 +1,14 @@
 {
     "name": "zhf.tools",
-    "version": "1.1.2",
+    "version": "2.0.0",
     "description": "no description",
     "main": "dist/index.min.js",
     "scripts": {
         "codeLint": "eslint --ext .js,.vue,.html ./",
         "codeFix": "eslint --fix --ext .js,.vue,.html ./",
         "gulp": "gulp",
-        "test": "jest"
+        "test": "jest",
+        "precommit": "npm run codeLint && npm run test"
     },
     "repository": {
         "type": "git",
@@ -33,6 +34,25 @@
         "gulp-babel": "^7.0.0",
         "gulp-rename": "^1.2.2",
         "gulp-uglify": "^3.0.0",
+        "husky": "^0.14.3",
         "jest": "^22.1.1"
+    },
+    "dependencies": {
+        "zhf.array-remove-repeat": "^1.0.0",
+        "zhf.check-str": "^1.0.1",
+        "zhf.constructor-inherit": "^1.0.0",
+        "zhf.date-format": "^1.0.1",
+        "zhf.extend": "^2.0.2",
+        "zhf.fill-zero": "^1.0.2",
+        "zhf.is-leap-year": "^1.0.0",
+        "zhf.json-to-array": "^1.0.0",
+        "zhf.keep-decimal": "^1.0.2",
+        "zhf.obj-remove-quote": "^1.0.1",
+        "zhf.query-string": "^1.0.3",
+        "zhf.random-num": "^1.0.2",
+        "zhf.seconds-to-time": "^1.0.1",
+        "zhf.str-to-hump": "^1.0.0",
+        "zhf.time-count-down": "^1.0.5",
+        "zhf.type-of": "^1.0.1"
     }
 }
