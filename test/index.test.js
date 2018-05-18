@@ -13,7 +13,7 @@ test(`tools.typeOf(123); // 'number'`, () => {
 });
 
 test(`tools.keepDecimal(1000, 3); // '1,000.000'`, () => {
-    expect(tools.keepDecimal(1000, 3)).toBe('1,000.000');
+    expect(tools.keepDecimal(1000, 3, true)).toBe('1,000.000');
 });
 
 test(`tools.keepDecimal(1000, 3, false); // '1000.000'`, () => {
