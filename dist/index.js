@@ -22,9 +22,10 @@ Tools.prototype.createUniqueChar = require('zhf.create-unique-char'); // 生成�
 Tools.prototype.htmlEncode = require('zhf.html-encode'); // 把html里面的尖括号字符转义成十进制编码
 Tools.prototype.dataType = require('zhf.data-type'); // 数据类型检测
 Tools.prototype.multipleCalls = require('zhf.multiple-calls'); // 至少调用多次才会触发函数
-Tools.prototype.keepDecimal = require('zhf.keep-decimal'); // 保留几位小数
-Tools.prototype.strToNum = require('zhf.str-to-num'); // keepDecimal的延伸，字符串转成数字格式的字符串，正整数，正浮点数
 Tools.prototype.moneyFormat = require('zhf.money-format'); // 数字形式的字符串格式化成金钱的格式 '1000000' -> '1,000,000'
+Tools.prototype.strGetNum = require('zhf.str-get-num'); // 从字符串中提取出数字部分
+Tools.prototype.keepDecimal = require('zhf.keep-decimal'); // 保留几位小数
+Tools.prototype.strToNum = require('zhf.str-to-num'); // k字符串转成数字格式的字符串，可以转成正整数和正浮点数等。是keepDecimal方法的延伸
 
 // 输出
 module.exports = new Tools();

@@ -39,7 +39,7 @@
     },
     "dependencies": {
         "zhf.array-remove-repeat": "^1.0.0",
-        "zhf.check-str": "^1.0.2",
+        "zhf.check-str": "^1.0.4",
         "zhf.constructor-inherit": "^1.0.0",
         "zhf.create-unique-char": "^1.0.0",
         "zhf.data-type": "^1.0.2",
@@ -50,15 +50,16 @@
         "zhf.html-encode": "^1.0.0",
         "zhf.is-leap-year": "^1.0.0",
         "zhf.json-to-array": "^1.0.0",
-        "zhf.keep-decimal": "^1.0.7",
+        "zhf.keep-decimal": "^1.1.0",
         "zhf.money-format": "^1.0.1",
         "zhf.multiple-calls": "^1.0.3",
         "zhf.obj-remove-quote": "^1.0.1",
         "zhf.query-string": "^1.0.3",
         "zhf.random-num": "^1.0.2",
         "zhf.seconds-to-time": "^1.0.1",
+        "zhf.str-get-num": "^1.0.0",
         "zhf.str-to-hump": "^1.0.0",
-        "zhf.str-to-num": "^1.0.2",
+        "zhf.str-to-num": "^1.0.3",
         "zhf.time-count-down": "^1.0.5",
         "zhf.type-of": "^1.0.1"
     }
