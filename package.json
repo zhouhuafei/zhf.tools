@@ -1,6 +1,6 @@
 {
     "name": "zhf.tools",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "description": "no description",
     "main": "dist/index.min.js",
     "scripts": {
@@ -52,7 +52,7 @@
         "zhf.json-to-array": "^1.0.0",
         "zhf.keep-decimal": "^1.1.0",
         "zhf.money-format": "^1.0.1",
-        "zhf.multiple-calls": "^1.0.3",
+        "zhf.multiple-calls": "^1.0.4",
         "zhf.obj-remove-quote": "^1.0.1",
         "zhf.query-string": "^1.0.3",
         "zhf.random-num": "^1.0.2",
