@@ -1,6 +1,6 @@
 {
     "name": "zhf.tools",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "description": "no description",
     "main": "dist/index.min.js",
     "scripts": {
@@ -44,7 +44,7 @@
         "zhf.create-unique-char": "^1.0.0",
         "zhf.data-type": "^1.0.2",
         "zhf.date-format": "^1.0.1",
-        "zhf.extend": "^2.0.2",
+        "zhf.extend": "^2.0.3",
         "zhf.fill-zero": "^1.0.2",
         "zhf.how-many-days": "^1.0.0",
         "zhf.html-encode": "^1.0.0",
