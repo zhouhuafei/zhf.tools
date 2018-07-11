@@ -1,6 +1,6 @@
 {
     "name": "zhf.tools",
-    "version": "2.0.4",
+    "version": "2.0.5",
     "description": "no description",
     "main": "dist/index.min.js",
     "scripts": {
@@ -39,7 +39,7 @@
     },
     "dependencies": {
         "zhf.array-remove-repeat": "^1.0.0",
-        "zhf.check-str": "^1.0.4",
+        "zhf.check-str": "^1.0.5",
         "zhf.constructor-inherit": "^1.0.0",
         "zhf.create-unique-char": "^1.0.0",
         "zhf.data-type": "^1.0.2",
